@@ -1,0 +1,604 @@
+
+{
+	"toJSON" : true,
+	"extraProperties" : 
+	{
+		"version" : "2",
+		"classes" : 
+		{
+			"Package" : 
+			{
+				"panelColor" : "#7F7F7F",
+				"panel" : 
+				{
+					"isOpen" : "true",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 395,
+						"Y" : 5
+					}
+				}
+			},
+			"Maintainer" : 
+			{
+				"panelColor" : "#D7E3BC",
+				"panel" : 
+				{
+					"isOpen" : "true",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 708,
+						"Y" : 223
+					}
+				}
+			},
+			"Contributor" : 
+			{
+				"panelColor" : "#C3D69B",
+				"panel" : 
+				{
+					"isOpen" : "true",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 704,
+						"Y" : 6
+					}
+				}
+			},
+			"Bug" : 
+			{
+				"panelColor" : "#C4BD97",
+				"panel" : 
+				{
+					"isOpen" : "true",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 135,
+						"Y" : 234
+					}
+				}
+			},
+			"Repositorie" : 
+			{
+				"panelColor" : "#7F7F7F",
+				"panel" : 
+				{
+					"isOpen" : "true",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 154,
+						"Y" : 427
+					}
+				}
+			},
+			"Dependency" : 
+			{
+				"panelColor" : "#E5B9B7",
+				"panel" : 
+				{
+					"isOpen" : "true",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 164,
+						"Y" : 623
+					}
+				}
+			},
+			"Author" : 
+			{
+				"panelColor" : "#C3D69B",
+				"panel" : 
+				{
+					"isOpen" : "true",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 67,
+						"Y" : 8
+					}
+				}
+			}
+		},
+		"model" : 
+		{
+			"scriptMode" : "manual",
+			"workspaceLeft" : 350,
+			"workspaceTop" : 244,
+			"lastScriptLocation" : 
+			{
+				"Package" : 
+				{
+					"method" : "Package/Package-methods.js"
+				}
+			}
+		}
+	},
+	"dataClasses" : 
+	[
+		{
+			"name" : "Author",
+			"className" : "Author",
+			"collectionName" : "AuthorCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "login",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "password",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "packageCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "PackageCollection",
+					"reversePath" : true,
+					"path" : "author"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "Bug",
+			"className" : "Bug",
+			"collectionName" : "BugCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "mail",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "web",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "pack",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Package",
+					"path" : "Package"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "Contributor",
+			"className" : "Contributor",
+			"collectionName" : "ContributorCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "name",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "email",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "web",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "package",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Package",
+					"path" : "Package"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "Dependency",
+			"className" : "Dependency",
+			"collectionName" : "DependencyCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "nom",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "version",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "pack",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Package",
+					"path" : "Package"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "Maintainer",
+			"className" : "Maintainer",
+			"collectionName" : "MaintainerCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "name",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "email",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "web",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "pack",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Package",
+					"path" : "Package"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "Package",
+			"className" : "Package",
+			"collectionName" : "PackageCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "name",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "version",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "license",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "author",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Author",
+					"path" : "Author"
+				},
+				{
+					"name" : "type",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "keywords",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "implements",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "os",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "cpu",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "engines",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "scripts",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "directories",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "description",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "maintainers",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "MaintainerCollection",
+					"reversePath" : true,
+					"path" : "pack"
+				},
+				{
+					"name" : "contributors",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "ContributorCollection",
+					"reversePath" : true,
+					"path" : "package"
+				},
+				{
+					"name" : "dependancies",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "DependencyCollection",
+					"reversePath" : true,
+					"path" : "pack"
+				},
+				{
+					"name" : "bugs",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "BugCollection",
+					"reversePath" : true,
+					"path" : "pack"
+				},
+				{
+					"name" : "repositories",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "RepositorieCollection",
+					"reversePath" : true,
+					"path" : "pack"
+				},
+				{
+					"name" : "main",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				}
+			],
+			"methods" : 
+			[
+				{
+					"name" : "createPackage",
+					"applyTo" : "dataClass",
+					"scope" : "publicOnServer",
+					"from" : "model.Package.methods.createPackage",
+					"userDefined" : true
+				},
+				{
+					"name" : "getContributors",
+					"applyTo" : "dataClass",
+					"scope" : "publicOnServer",
+					"from" : "model.Package.methods.getContributors",
+					"userDefined" : true
+				},
+				{
+					"name" : "getDependencies",
+					"applyTo" : "dataClass",
+					"scope" : "publicOnServer",
+					"from" : "model.Package.methods.getDependencies",
+					"userDefined" : true
+				},
+				{
+					"name" : "getMaintainers",
+					"applyTo" : "dataClass",
+					"scope" : "publicOnServer",
+					"from" : "model.Package.methods.getMaintainers",
+					"userDefined" : true
+				},
+				{
+					"name" : "getPackages",
+					"applyTo" : "dataClass",
+					"scope" : "publicOnServer",
+					"from" : "model.Package.methods.getPackages",
+					"userDefined" : true
+				},
+				{
+					"name" : "removePackage",
+					"applyTo" : "dataClass",
+					"scope" : "publicOnServer",
+					"from" : "model.Package.methods.removePackage",
+					"userDefined" : true
+				},
+				{
+					"name" : "updatePackage",
+					"applyTo" : "dataClass",
+					"scope" : "publicOnServer",
+					"from" : "model.Package.methods.updatePackage",
+					"userDefined" : true
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "Repositorie",
+			"className" : "Repositorie",
+			"collectionName" : "RepositorieCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "type",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "url",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "pack",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Package",
+					"path" : "Package"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		}
+	]
+}
