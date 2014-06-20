@@ -1,5 +1,5 @@
-##Welcome to Wakanda##
+##Welcome to Demo Wakanda Package Manager##
 
 This is the place to describe your Wakanda application.
 
-Please visit [www.wakanda.org](http://www.wakanda.org "wakanda.org") for more information.
+to see a simple demo of some funti  visit [www.youtube.com/watch?v=LyCWSgwgR4A]
