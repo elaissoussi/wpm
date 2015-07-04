@@ -5,7 +5,9 @@ This is the place to describe your Wakanda application.
 to see a simple demo of some funti  visit [www.youtube.com/watch?v=LyCWSgwgR4A]
 
 ###Pre-Install 
-* Nginx server 
+
+* Linux
+* Nginx 
 * Git 
 
 ###Configuration files
@@ -123,4 +125,72 @@ http {
     }
 
 }
+```
+
+
+- init_depot.cgi
+```
+#!/usr/bin/env perl
+
+# in this script we supose that the user hase aready subscribe
+# so we add the user name and password in .htaccess 
+# so for each request we get the user and the reposity names
+# see if the repository is existe and if not 
+# 1- ceate the repot in the name of the user and the repot also
+# 2- init as --bare
+# //  this can possible when the subscription 3- change owner and # # #groupre to www-data  
+# set the env variables 
+
+# set the header of the response for text over browser
+print "Content-type: text/html\n\n";
+
+# test in the log => print STDERR "my comment" ;
+#--------------------  Set and Get  varaibles ------------------
+ 
+my $user    = $ENV{REMOTE_USER} ;
+my $request = $ENV{REQUEST_URI} ;
+my $packageName ;
+my $repot ='/var/git'  ;
+
+
+#------------------------------we create a repo just in the receive pack =push ---------------------
+
+if($request =~m/^\/([a-zA-Z0-9\.\-]+)\/.*?service=git-receive-pack.*$/ ){
+    $packageName = $1 ;
+}
+
+# if the package name is defined => push repository 
+
+if( -d $repot && defined $packageName ){ 
+      
+        chdir($repot) or die"connot chdir to ".$repot ;
+
+      #---------------------------------User depot------------------------------------------------
+      # if a user repot exist  
+      if(-d $user ){
+              #change the user
+              chdir($user) or die"connot chdir to ".$user ; 
+      }
+      # no dirctory has the name of the user  
+      else{
+       mkdir($user) or die "connot mkdir new dir ".$user ;
+       chdir($user) or die"connot chdir to ".$user ; 
+      }
+
+      #---------------------------------Package name ------------------------------------------------
+     if(-d $packageName ){
+         # test if the package exits
+         #print $repot." is aready exist in the depot " ;
+        }
+     else{ 
+         # if dosn't exist.    
+         mkdir($packageName) or die "connot mkdir new dir ".$packageName ;
+         # init the direcoty as bare one. 
+         chdir($packageName) or die"connot chdir to ".$repot ;
+         # init the package repot 
+         system("git init --bare");
+         system("git update-server-info");
+
+        }
+ }
 ```
