@@ -1,6 +1,4 @@
-##Welcome to Demo Wakanda Package Manager##
-
-This is the place to describe your Wakanda application.
+##Wakanda Package Manager##
 
 to see a simple a demo please follow this link https://youtu.be/GeDoMHppWuQ
 
