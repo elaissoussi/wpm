@@ -2,13 +2,13 @@
 
 This is the place to describe your Wakanda application.
 
-to see a simple demo of some funti  visit [www.youtube.com/watch?v=LyCWSgwgR4A]
+to see a simple a demo please follow this link https://youtu.be/GeDoMHppWuQ
 
 ###Pre-Install 
 
-* Linux
-* Nginx 
-* Git 
+* Linux (OS)
+* Nginx (Web Server)
+* Git (Version and Packages Management)
 
 ###Configuration files
 - nginx.conf
